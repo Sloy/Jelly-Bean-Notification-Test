@@ -83,6 +83,12 @@ public class MainActivity extends Activity implements ActionBar.TabListener {
 				}
 				getFragmentManager().beginTransaction().replace(R.id.container, mFragType).commit();
 				break;
+			case 1:
+				if (mFragPriority == null) {
+					mFragPriority = new PriorityFragment();
+				}
+				getFragmentManager().beginTransaction().replace(R.id.container, mFragPriority).commit();
+				break;
 			default:
 				Fragment fragment = new DummySectionFragment();
 				Bundle args = new Bundle();

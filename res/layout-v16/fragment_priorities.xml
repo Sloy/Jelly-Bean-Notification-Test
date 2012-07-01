@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center" >
+
+    <Button
+        android:id="@+id/priority_max"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Max priority" />
+
+    <Button
+        android:id="@+id/priority_high"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="High priority" />
+
+    <Button
+        android:id="@+id/priority_default"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Default priority" />
+
+    <Button
+        android:id="@+id/priority_low"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Low priority" />
+
+    <Button
+        android:id="@+id/priority_min"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Min priority" />
+
+</LinearLayout>
