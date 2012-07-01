@@ -119,6 +119,7 @@ public class TypeFragment extends Fragment {
 
 	}
 
+	@SuppressWarnings("deprecation")
 	private Notification getDefaultNotification(Notification.Builder builder) {
 		builder
 			.setSmallIcon(R.drawable.ic_launcher)
@@ -221,7 +222,7 @@ public class TypeFragment extends Fragment {
 			// Add as many buttons as you have to
 			PendingIntent intent = PendingIntent.getActivity(mContext, 0, new Intent(), 0);
 			for (int i = 0; i < buttons; i++) {
-				builder.addAction(android.R.drawable.ic_menu_add, "Action " + (i + 1), intent);
+				builder.addAction(mRandomizer.getRandomIconId(), "Action " + (i + 1), intent);
 			}
 		}
 	}
