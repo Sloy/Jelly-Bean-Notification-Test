@@ -88,12 +88,12 @@ public class TypeFragment extends Fragment {
 
 		// Version independent
 		mDefault = (Button) v.findViewById(R.id.type_default);
-		mRandom = (Button) v.findViewById(R.id.type_random);
+
 		mDefault.setOnClickListener(listener);
-		mRandom.setOnClickListener(listener);
 
 		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
 			// Jelly Bean only
+			mRandom = (Button) v.findViewById(R.id.type_random);
 			mBigText = (Button) v.findViewById(R.id.type_big_text);
 			mInbox = (Button) v.findViewById(R.id.type_inbox);
 			mBigPicture = (Button) v.findViewById(R.id.type_big_picture);
@@ -104,6 +104,7 @@ public class TypeFragment extends Fragment {
 			mBigText.setOnClickListener(listener);
 			mInbox.setOnClickListener(listener);
 			mBigPicture.setOnClickListener(listener);
+			mRandom.setOnClickListener(listener);
 		}
 
 		return v;
@@ -119,25 +120,31 @@ public class TypeFragment extends Fragment {
 	}
 
 	private Notification getDefaultNotification(Notification.Builder builder) {
-		return builder
-			.setSmallIcon(R.drawable.ic_launcher)
-			.setWhen(System.currentTimeMillis())
-			.setContentTitle("Default notification")
-			.setContentText("Lorem ipsum dolor sit amet, consectetur adipiscing elit.")
-			.setContentInfo("Info")
-			.setLargeIcon(mRandomizer.getRandomImage())
-			.build();
+		builder
+				.setSmallIcon(R.drawable.ic_launcher)
+				.setWhen(System.currentTimeMillis())
+				.setContentTitle("Default notification")
+				.setContentText("Lorem ipsum dolor sit amet, consectetur adipiscing elit.")
+				.setContentInfo("Info")
+				.setLargeIcon(mRandomizer.getRandomImage());
+
+		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+			// Yummy jelly beans
+			return builder.build();
+		} else {
+			return builder.getNotification();
+		}
 
 	}
 
 	private Notification getBigTextStyle(Notification.Builder builder) {
 		builder
-			.setContentTitle("Reduced title")
-			.setContentText("Reduced content")
-			.setContentInfo("Info")
-			.setSmallIcon(R.drawable.ic_launcher)
-			.setLargeIcon(mRandomizer.getRandomImage());
-		
+				.setContentTitle("Reduced title")
+				.setContentText("Reduced content")
+				.setContentInfo("Info")
+				.setSmallIcon(R.drawable.ic_launcher)
+				.setLargeIcon(mRandomizer.getRandomImage());
+
 		return new Notification.BigTextStyle(builder)
 				.bigText(getResources().getString(R.string.big_text))
 				.setBigContentTitle("Expanded title")
@@ -152,11 +159,11 @@ public class TypeFragment extends Fragment {
 		Bitmap large = mRandomizer.getRandomImage();
 		Bitmap notSoLarge = mRandomizer.getRandomImage();
 		builder
-			.setContentTitle("Reduced title")
-			.setContentText("Reduced content")
-			.setContentInfo("Info")
-			.setSmallIcon(R.drawable.ic_launcher)
-			.setLargeIcon(large);
+				.setContentTitle("Reduced title")
+				.setContentText("Reduced content")
+				.setContentInfo("Info")
+				.setSmallIcon(R.drawable.ic_launcher)
+				.setLargeIcon(large);
 
 		return new Notification.BigPictureStyle(builder)
 				.bigPicture(large)
@@ -168,11 +175,11 @@ public class TypeFragment extends Fragment {
 
 	private Notification getInboxStyle(Notification.Builder builder) {
 		builder
-			.setContentTitle("Reduced title")
-			.setContentText("Reduced content")
-			.setContentInfo("Info")
-			.setSmallIcon(R.drawable.ic_launcher)
-			.setLargeIcon(mRandomizer.getRandomImage());
+				.setContentTitle("Reduced title")
+				.setContentText("Reduced content")
+				.setContentInfo("Info")
+				.setSmallIcon(R.drawable.ic_launcher)
+				.setLargeIcon(mRandomizer.getRandomImage());
 
 		Notification.InboxStyle n = new Notification.InboxStyle(builder)
 				.setBigContentTitle("Expanded title")
@@ -191,29 +198,31 @@ public class TypeFragment extends Fragment {
 	}
 
 	private void setButtons(Notification.Builder builder, Integer buttons) {
-
-		// Get number of buttons
-		if (buttons == null) {
-			// If not specified, check the input
-			buttons = 0;
-			if (mButtonsEnabled.isChecked()) {
-				switch (mButtonsGroup.getCheckedRadioButtonId()) {
-				case R.id.radio0:
-					buttons = 1;
-					break;
-				case R.id.radio1:
-					buttons = 2;
-					break;
-				case R.id.radio2:
-					buttons = 3;
-					break;
+		// Buttons only in Jelly Bean
+		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+			// Get number of buttons
+			if (buttons == null) {
+				// If not specified, check the input
+				buttons = 0;
+				if (mButtonsEnabled.isChecked()) {
+					switch (mButtonsGroup.getCheckedRadioButtonId()) {
+					case R.id.radio0:
+						buttons = 1;
+						break;
+					case R.id.radio1:
+						buttons = 2;
+						break;
+					case R.id.radio2:
+						buttons = 3;
+						break;
+					}
 				}
 			}
-		}
-		// Add as many buttons as you have to
-		PendingIntent intent = PendingIntent.getActivity(mContext, 0, new Intent(), 0);
-		for (int i = 0; i < buttons; i++) {
-			builder.addAction(android.R.drawable.ic_menu_add, "Action " + (i + 1), intent);
+			// Add as many buttons as you have to
+			PendingIntent intent = PendingIntent.getActivity(mContext, 0, new Intent(), 0);
+			for (int i = 0; i < buttons; i++) {
+				builder.addAction(android.R.drawable.ic_menu_add, "Action " + (i + 1), intent);
+			}
 		}
 	}
 
