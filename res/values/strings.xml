@@ -1,0 +1,10 @@
+<resources>
+
+    <string name="app_name">Jelly Bean Notifications Test</string>
+    <string name="title_section2">Priority</string>
+    <string name="title_section1">Types</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="menu_settings">Settings</string>
+    <string name="title_activity_main">JB Notifications Test</string>
+<string name="big_text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vitae tellus ac dui faucibus commodo. Morbi id urna lacus, sed cursus ipsum. Phasellus porta ipsum non mi bibendum accumsan. Nam lacus neque, sollicitudin et aliquam et, laoreet vitae lacus. Fusce lectus neque, semper id sagittis in, cursus elementum mi. Nam eget eleifend odio. Sed scelerisque eleifend ipsum ut aliquet. Donec nibh velit, consectetur vestibulum euismod et, tempus vel odio. Aliquam erat volutpat. Donec porta pharetra laoreet.</string>
+</resources>
