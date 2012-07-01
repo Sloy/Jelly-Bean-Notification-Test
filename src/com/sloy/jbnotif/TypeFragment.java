@@ -121,12 +121,12 @@ public class TypeFragment extends Fragment {
 
 	private Notification getDefaultNotification(Notification.Builder builder) {
 		builder
-				.setSmallIcon(R.drawable.ic_launcher)
-				.setWhen(System.currentTimeMillis())
-				.setContentTitle("Default notification")
-				.setContentText("Lorem ipsum dolor sit amet, consectetur adipiscing elit.")
-				.setContentInfo("Info")
-				.setLargeIcon(mRandomizer.getRandomImage());
+			.setSmallIcon(R.drawable.ic_launcher)
+			.setWhen(System.currentTimeMillis())
+			.setContentTitle("Default notification")
+			.setContentText("Lorem ipsum dolor sit amet, consectetur adipiscing elit.")
+			.setContentInfo("Info")
+			.setLargeIcon(mRandomizer.getRandomImage());
 
 		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
 			// Yummy jelly beans
@@ -139,15 +139,15 @@ public class TypeFragment extends Fragment {
 
 	private Notification getBigTextStyle(Notification.Builder builder) {
 		builder
-				.setContentTitle("Reduced title")
-				.setContentText("Reduced content")
-				.setContentInfo("Info")
-				.setSmallIcon(R.drawable.ic_launcher)
-				.setLargeIcon(mRandomizer.getRandomImage());
+			.setContentTitle("Reduced BigText title")
+			.setContentText("Reduced content")
+			.setContentInfo("Info")
+			.setSmallIcon(R.drawable.ic_launcher)
+			.setLargeIcon(mRandomizer.getRandomImage());
 
 		return new Notification.BigTextStyle(builder)
 				.bigText(getResources().getString(R.string.big_text))
-				.setBigContentTitle("Expanded title")
+				.setBigContentTitle("Expanded BigText title")
 				.setSummaryText("Summary text")
 				.build();
 	}
@@ -159,30 +159,30 @@ public class TypeFragment extends Fragment {
 		Bitmap large = mRandomizer.getRandomImage();
 		Bitmap notSoLarge = mRandomizer.getRandomImage();
 		builder
-				.setContentTitle("Reduced title")
-				.setContentText("Reduced content")
-				.setContentInfo("Info")
-				.setSmallIcon(R.drawable.ic_launcher)
-				.setLargeIcon(large);
+			.setContentTitle("Reduced BigPicture title")
+			.setContentText("Reduced content")
+			.setContentInfo("Info")
+			.setSmallIcon(R.drawable.ic_launcher)
+			.setLargeIcon(large);
 
 		return new Notification.BigPictureStyle(builder)
 				.bigPicture(large)
 				.bigLargeIcon(notSoLarge)
-				.setBigContentTitle("Expanded title")
+				.setBigContentTitle("Expanded BigPicture title")
 				.setSummaryText("Summary text")
 				.build();
 	}
 
 	private Notification getInboxStyle(Notification.Builder builder) {
 		builder
-				.setContentTitle("Reduced title")
-				.setContentText("Reduced content")
-				.setContentInfo("Info")
-				.setSmallIcon(R.drawable.ic_launcher)
-				.setLargeIcon(mRandomizer.getRandomImage());
+			.setContentTitle("Reduced Inbox title")
+			.setContentText("Reduced content")
+			.setContentInfo("Info")
+			.setSmallIcon(R.drawable.ic_launcher)
+			.setLargeIcon(mRandomizer.getRandomImage());
 
 		Notification.InboxStyle n = new Notification.InboxStyle(builder)
-				.setBigContentTitle("Expanded title")
+				.setBigContentTitle("Expanded Inbox title")
 				.setSummaryText("Summary text");
 
 		// Add 10 lines
