@@ -2,163 +2,14 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical" >
-
-    <GridLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:columnCount="5" >
-
-        <Button
-            android:id="@+id/type_random"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_column="0"
-            android:layout_gravity="left"
-            android:layout_row="0"
-            android:layout_rowSpan="2"
-            android:text="Random" />
+    android:orientation="horizontal" >
 
         <Button
             android:id="@+id/type_default"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_column="2"
             android:layout_gravity="left"
-            android:layout_row="0"
-            android:layout_rowSpan="2"
             android:onClick="showDefaultNotification"
             android:text="Default" />
-
-        <Button
-            android:id="@+id/type_big_text"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_column="0"
-            android:layout_gravity="left"
-            android:layout_row="2"
-            android:text="Big Text" />
-
-        <Button
-            android:id="@+id/type_big_picture"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_column="1"
-            android:layout_columnSpan="2"
-            android:layout_gravity="left"
-            android:layout_row="2"
-            android:text="Big Picture" />
-
-        <Switch
-            android:id="@+id/type_buttons_switch"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_column="0"
-            android:layout_columnSpan="3"
-            android:layout_gravity="left"
-            android:layout_row="4"
-            android:text="Buttons" />
-
-        <Space
-            android:layout_width="1dp"
-            android:layout_height="16dp"
-            android:layout_column="0"
-            android:layout_row="0" />
-
-        <Space
-            android:layout_width="1dp"
-            android:layout_height="36dp"
-            android:layout_column="0"
-            android:layout_row="1" />
-
-        <Space
-            android:layout_width="19dp"
-            android:layout_height="1dp"
-            android:layout_column="3"
-            android:layout_row="0" />
-
-        <Button
-            android:id="@+id/type_inbox"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_column="3"
-            android:layout_gravity="left"
-            android:layout_row="2"
-            android:text="Inbox" />
-
-        <Space
-            android:layout_width="45dp"
-            android:layout_height="1dp"
-            android:layout_column="4"
-            android:layout_row="0" />
-
-        <Space
-            android:layout_width="112dp"
-            android:layout_height="1dp"
-            android:layout_column="2"
-            android:layout_row="0" />
-
-        <Space
-            android:layout_width="98dp"
-            android:layout_height="1dp"
-            android:layout_column="0"
-            android:layout_row="0" />
-
-        <Space
-            android:layout_width="2dp"
-            android:layout_height="14dp"
-            android:layout_column="1"
-            android:layout_row="3" />
-
-        <Space
-            android:layout_width="100dp"
-            android:layout_height="28dp"
-            android:layout_column="2"
-            android:layout_row="3" />
-
-        <Space
-            android:layout_width="100dp"
-            android:layout_height="27dp"
-            android:layout_column="0"
-            android:layout_row="3" />
-
-        <Space
-            android:layout_width="100dp"
-            android:layout_height="51dp"
-            android:layout_column="3"
-            android:layout_row="3" />
-
-        <Space
-            android:layout_width="100dp"
-            android:layout_height="50dp"
-            android:layout_column="4"
-            android:layout_row="3" />
-    </GridLayout>
-
-<RadioGroup
-    android:id="@+id/type_buttons_group"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:orientation="horizontal" >
-
-    <RadioButton
-        android:id="@+id/radio0"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:checked="true"
-        android:text="1" />
-
-    <RadioButton
-        android:id="@+id/radio1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="2" />
-
-    <RadioButton
-        android:id="@+id/radio2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="3" />
-</RadioGroup>
 
 </LinearLayout>
