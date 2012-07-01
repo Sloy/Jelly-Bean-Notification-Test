@@ -1,2 +1,5 @@
 gen/*
 bin/*
+apks/*
+*.apk
+keystore
